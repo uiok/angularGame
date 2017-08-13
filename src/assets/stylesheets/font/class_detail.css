@@ -1,0 +1,296 @@
+﻿/*課程分類內頁*/
+.col-md-12 .col-md-12{
+	padding: 10px 30px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+h1 {
+	color: #1d2088;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 0;
+	margin-top: -2px;
+}
+
+/*麵包屑*/
+.tab {
+	color: #fff;
+	text-decoration: underline !important;
+}
+
+	.tab:hover {
+		color: #e60019;
+	}
+
+/*中間區塊*/
+.center_area {
+	width: 100%;
+	margin: 10px 0;
+}
+
+	/*預設按鈕位置*/
+	.center_area .test {
+		width: 90px;
+		display: inline-block;
+		float: left;
+	}
+
+	.center_area .pwd {
+		width: 55%;
+		display: inline-block;
+		text-align: center;
+	}
+
+	.center_area .count {
+		width: 25%;
+		display: inline-block;
+		float: right;
+		text-align: right;
+		margin-top: -2px;
+	}
+
+/*視頻說明*/
+.video_description {
+	margin: 25px 0 20px 0;
+	border: 1px solid #ddd;
+	-webkit-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-moz-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-ms-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-o-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+}
+
+	.video_description .video_title {
+		padding: 5px 10px;
+		background: #ddd !important; /* Old browsers */
+		background: -moz-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%, #ffffff)) !important; /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #ddd 0%,#ffffff 100%) !important; /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* IE10+ */
+		background: linear-gradient(to bottom, #ddd 0%, #ffffff 100%) !important; /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd', endColorstr='#ffffff',GradientType=0 ) !important; /* IE6-9 */
+		border-bottom: 1px solid #ddd;
+		font-weight: 700;
+	}
+
+	.video_description .video_content {
+		padding: 10px;
+		letter-spacing: 1px;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+
+/*我要評論*/
+.write {
+	width: 100%;
+}
+
+.form-textarea {
+	width: 100%;
+	height: 100px;
+	padding: 2px 6px;
+	resize: none;
+}
+
+.send {
+	margin-top: 5px;
+	width: 90px;
+	float: right;
+}
+
+/*留言板*/
+.message {
+	margin-top: 45px;
+	margin-bottom: 20px;
+}
+
+	.message .message_row {
+		margin-bottom: 10px;
+		border-bottom: 1px solid #ddd;
+	}
+
+		.message .message_row:last-child {
+			border-bottom: none;
+		}
+
+	.message img {
+		width: 50px;
+		height: 50px;
+		-webkit-border-radius: 99em 99em 99em 99em;
+		-moz-border-radius: 99em 99em 99em 99em;
+		border-radius: 99em 99em 99em 99em;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.message .message_content {
+		display: inline-block;
+		width: 90%;
+		vertical-align: top;
+		padding: 5px 0 5px 5px;
+		letter-spacing: 1px;
+	}
+
+		.message .message_content .date {
+			display: inline-block;
+			color: #999;
+			font-size: 12px;
+			font-weight: normal;
+			letter-spacing: 0;
+		}
+
+		.message .message_content p {
+			margin-top: -7px;
+		}
+
+		.message .message_content .btn_reply {
+			color: #1d2088;
+			width: 45px;
+			display: block;
+			margin-top: -10px;
+			margin-bottom: 5px;
+		}
+
+			.message .message_content .btn_reply:hover {
+				color: #e60019;
+				text-decoration: underline;
+			}
+
+	/*回覆區塊*/
+	.message .reply {
+		width: 100%;
+		margin-bottom: 50px;
+		display: none;
+	}
+
+		.message .reply .form-textarea {
+			height: 60px;
+		}
+
+		.message .reply .btn_reply2, .message .reply .btn_cancel {
+			margin-left: 3px;
+			width: 70px;
+		}
+
+	/*回覆大頭貼*/
+	.message .reply_img {
+		width: 40px;
+		height: 40px;
+	}
+
+/*視頻列表*/
+.video_list {
+	border: 1px solid #ddd;
+	-webkit-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-moz-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-ms-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-o-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+}
+
+	.video_list .video_list_title {
+		padding: 5px 10px;
+		background: #ddd !important; /* Old browsers */
+		background: -moz-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%, #ffffff)) !important; /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #ddd 0%,#ffffff 100%) !important; /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* IE10+ */
+		background: linear-gradient(to bottom, #ddd 0%, #ffffff 100%) !important; /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd', endColorstr='#ffffff',GradientType=0 ) !important; /* IE6-9 */
+		border-bottom: 1px solid #ddd;
+		font-weight: 700;
+	}
+
+	.video_list .video_list_content {
+		padding: 10px;
+		word-wrap: break-word;
+		word-break: break-all;
+		height: auto;
+	}
+
+	.video_list a {
+		color: #333;
+	}
+
+	.video_list .video_list_row {
+		padding: 5px 0;
+	}
+
+		.video_list .video_list_row:hover {
+			background-color: rgba(230, 0, 25, 0.07);
+		}
+
+	.video_list img {
+		width: 105px;
+		height: 80px;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.video_list .video_list_description {
+		display: inline-block;
+		width: 52%;
+		vertical-align: top;
+		padding: 20px 0 10px 5px;
+		letter-spacing: 1px;
+	}
+
+		.video_list .video_list_description p {
+			margin-top: -7px;
+		}
+
+/*進行評量*/
+.fancybox-overlay {
+	background: rgba(34, 25, 25, 0.3) !important;
+}
+
+.fancybox-skin {
+	padding: 0 !important;
+	background: #FFFFFF !important;
+}
+
+.fancybox-close {
+	position: absolute;
+	top: 7px !important;
+	right: 25px !important;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 8040;
+}
+
+.model {
+	display: none;
+}
+
+	.model .detail-title {
+		background: #1d2088; /* Old browsers */
+		background: -moz-linear-gradient(top, #0026b4 0%, #1d2088 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0026b4), color-stop(100%, #1d2088)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #0026b4 0%, #1d2088 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #0026b4 0%,#1d2088 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #0026b4 0%, #1d2088 100%); /* IE10+ */
+		background: linear-gradient(to bottom, #0026b4 0%, #1d2088 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0026b4', endColorstr='#1d2088',GradientType=0 ); /* IE6-9 */
+		color: #fff;
+		text-shadow: 0 1px 1px #000;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 14px 10px 14px 20px;
+		-webkit-border-radius: 8px 8px 0 0;
+		-moz-border-radius: 8px 8px 0 0;
+		border-radius: 8px 8px 0 0;
+	}
+
+	.model .text {
+		color: #000000;
+		word-wrap: break-word;
+		word-break: break-all;
+		padding: 15px;
+		-webkit-border-radius: 0 0 8px 8px;
+		-moz-border-radius: 0 0 8px 8px;
+		border-radius: 0 0 8px 8px;
+	}

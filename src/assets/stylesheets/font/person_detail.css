@@ -1,0 +1,171 @@
+﻿/*個人資料*/
+.col-md-12  .col-md-12{
+	padding: 15px 40px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+h1 {
+	color: #1d2088;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: 0;
+	margin-top: -2px;
+}
+
+/*個人資料表格*/
+.form_table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+	.form_table tr td {
+		vertical-align: middle;
+		text-align: left;
+		padding: 2px;
+	}
+
+		.form_table tr td.td_title {
+			vertical-align: middle;
+			text-align: left;
+			padding: 2px;
+			width: 105px;
+		}
+
+		.form_table tr td.td_BR {
+			height: 25px;
+		}
+
+		/*送出鈕*/
+		.form_table tr td .submit {
+			margin-left: 0;
+			margin-top: 5px;
+		}
+
+	/*獎盃*/
+	.form_table img.cup {
+		width: 50px;
+		height: 50px;
+		display: inline-block;
+	}
+
+	/*大頭照*/
+	.form_table img.photo {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		margin-left: 15px;
+	}
+
+	/*上傳圖片區塊*/
+	.form_table .upload {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 20px;
+		padding-top: 5px;
+		line-height: 15px;
+	}
+
+		.form_table .upload span {
+			font-size: 12px;
+		}
+
+		.form_table .upload .btn-default {
+			width: 260px;
+			display: inline-block;
+		}
+
+/*明碼按鈕*/
+#pwd {
+	border: none;
+	height: 28px;
+	padding: 2px 8px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	background-color: #eee;
+}
+
+.eye {
+	margin-left: -25px;
+	margin-top: -5px;
+}
+
+/*顯示全部地址按鈕*/
+.address {
+	margin-left: -27px;
+	margin-top: -5px;
+}
+
+.address_showall {
+	margin-left: 495px;
+}
+
+.showall {
+	width: 520px !important;
+}
+
+/*日期選擇*/
+ui-datepicker {
+	width: 22em !important;
+	padding: .2em .2em 0 !important;
+	font-size: 75% !important;
+}
+
+.ui-widget-header {
+	background: #ddd !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%, #ffffff)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ddd 0%,#ffffff 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #ddd 0%, #ffffff 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd', endColorstr='#ffffff',GradientType=0 ) !important; /* IE6-9 */
+}
+
+/*日期按鈕*/
+.ui-datepicker-trigger {
+	margin-left: -25px;
+	margin-top: -3px;
+	cursor: pointer;
+}
+
+/*燈光顏色*/
+.light {
+	margin: 0 auto;
+	width: 25px;
+	height: 25px;
+	-webkit-border-radius: 99em 99em 99em 99em;
+	-moz-border-radius: 99em 99em 99em 99em;
+	border-radius: 99em 99em 99em 99em;
+	border: 1px solid #ccc;
+}
+
+	.light.green {
+		background-color: limegreen;
+	}
+
+	.light.yellow {
+		background-color: yellow;
+	}
+
+	.light.red {
+		background-color: red;
+	}
+/*叉叉按鈕*/
+.btn_RemoveObj {
+    width: 15px;
+    height: 15px;
+    background-size: 100%;
+    background-image: url('/Upload/Error_Symbol.png');
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+.LabelTextBox
+{
+   border: none;
+   background-color: #fff;
+   background: transparent;
+}

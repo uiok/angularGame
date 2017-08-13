@@ -1,0 +1,12 @@
+<div id="player{{player.name}}_cards" class="row">
+    <card
+ *ngFor="let playerCard of player.cards"
+  [myCard]="playerCard"
+  (onCardSelected) = "selectedProcess($event)"
+  ></card>
+  <!--<div id="player1_card_1" class="horizontal_cards card_{{player.cards[0]}} col-md-2 col-sm-6"></div>
+  <div id=" player1_card_2 " class="horizontal_cards card_{{player.cards[1]}} col-md-2 col-sm-6"></div>
+  <div id="player1_card_3" class="horizontal_cards card_{{player.cards[2]}} col-md-2 col-sm-6"></div>
+  <div id=" player1_card_4 " class="horizontal_cards card_{{player.cards[3]}} col-md-2 col-sm-6"></div>
+  <div id="player1_card_5 " class="horizontal_cards card_{{player.cards[4]}} col-md-2 col-sm-6 "></div>-->
+</div>

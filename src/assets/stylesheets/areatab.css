@@ -1,0 +1,393 @@
+﻿/*首頁輪播*/
+/*#wrapper {
+	margin-top: -20px;
+	margin-bottom: 15px;
+}
+
+.oneByOne1 {
+	margin-top: 0;
+}
+
+.buttonCon {
+	background-color: rgba(34, 25, 25, 0.2);
+	bottom: -5px;
+	padding: 5px;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}*/
+
+.slider-wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 940px;
+	height: auto;
+	max-height: 341px;
+	padding: 0;
+	margin: 0 auto;
+	margin-top: -20px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+/*定義手機橫版*/
+@media all and (max-width:700px) {
+	/*.nivoSlider {
+		height: 341px;
+	}
+
+		.nivoSlider img {
+			width: auto !important;
+			height: 100% !important;
+			left: -40% !important;
+		}
+
+	.nivo-main-image {
+		width: auto !important;
+		height: 100% !important;
+		left: -40% !important;
+	}*/
+}
+
+.nivo-controlNav {
+	text-align: center;
+	position: absolute;
+	padding: 0 !important;
+	bottom: 10px;
+	width: 100%;
+	max-width: 940px;
+	z-index: 999;
+}
+
+/*Tab物件*/
+.nav-tabs > li > a {
+	background: #1d2088; /* Old browsers */
+	background: -moz-linear-gradient(top, #0026b4 0%, #1d2088 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0026b4), color-stop(100%, #1d2088)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #0026b4 0%, #1d2088 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #0026b4 0%,#1d2088 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #0026b4 0%, #1d2088 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #0026b4 0%, #1d2088 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0026b4', endColorstr='#1d2088',GradientType=0 ); /* IE6-9 */
+	color: #fff;
+	text-shadow: 0 1px 1px #000;
+}
+
+.nav-tabs > li.active > a {
+	background-color: #fff !important;
+	background: -moz-linear-gradient(top, #fff 0%, #fff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%, #fff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fff 0%, #fff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fff 0%,#fff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fff 0%, #fff 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #fff 0%, #fff 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b90000', endColorstr='#840d16',GradientType=0 ); /* IE6-9 */
+	text-shadow: none;
+}
+
+.tab-content {
+	border: 1px solid #ddd;
+	border-top: none;
+	padding: 10px;
+	-webkit-border-radius: 0 4px 4px 4px;
+	-moz-border-radius: 0 4px 4px 4px;
+	border-radius: 0 4px 4px 4px;
+}
+
+	.tab-content .more {
+		width: 100%;
+		text-align: right;
+		padding-right: 20px;
+		clear: both;
+	}
+
+/*區塊底下的小區塊設定*/
+.thumbnail {
+	-webkit-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-moz-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-ms-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	-o-box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	box-shadow: 0 1px 1px rgba(34, 25, 25, 0.2);
+	background: #eee !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eee 0%, #ffffff 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%, #ffffff)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eee 0%, #ffffff 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eee 0%,#ffffff 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #eee 0%, #ffffff 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #eee 0%, #ffffff 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eee', endColorstr='#ffffff',GradientType=0 ) !important; /* IE6-9 */
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+	/*只有圖片無文字*/
+	.thumbnail.img {
+		padding: 5px;
+		margin-bottom: 15px;
+	}
+
+	.thumbnail:hover {
+		border: 1px solid #e60019;
+	}
+
+	.thumbnail img {
+		width: auto;
+		height: 180px;
+		margin: 0;
+	}
+
+	/*只有圖片無文字*/
+	.thumbnail.img img {
+		width: auto;
+		height: 180px;
+	}
+
+	.thumbnail .thumbnail_content {
+		padding: 5px 0;
+		color: #1d2088;
+	}
+
+		.thumbnail .thumbnail_content:hover {
+			color: #e60019;
+		}
+
+		.thumbnail .thumbnail_content h1 {
+			margin: 0;
+			font-size: 16px;
+			font-weight: 500;
+			letter-spacing: -1px;
+			margin-bottom: 5px;
+			height: 35px;
+			overflow: hidden;
+		}
+
+		.thumbnail .thumbnail_content .date {
+			margin-left: 5px;
+		}
+
+/*預設按鈕*/
+.default {
+	background: #1d2088 !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #0026b4 0%, #1d2088 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0026b4), color-stop(100%, #1d2088)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #0026b4 0%, #1d2088 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #0026b4 0%,#1d2088 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #0026b4 0%, #1d2088 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #0026b4 0%, #1d2088 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0026b4', endColorstr='#1d2088',GradientType=0 ) !important; /* IE6-9 */
+	color: #fff;
+	text-shadow: 0 1px 1px #000;
+	line-height: 16px;
+	width: auto;
+}
+
+	.default:hover {
+		opacity: 0.9;
+		color: #fff;
+	}
+
+/*表格*/
+.table {
+	width: 100%;
+	margin-top: 15px;
+	border: 1px solid #ddd;
+}
+
+	.table thead > tr > th {
+		background: #ddd !important; /* Old browsers */
+		background: -moz-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%, #ffffff)) !important; /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #ddd 0%,#ffffff 100%) !important; /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* IE10+ */
+		background: linear-gradient(to bottom, #ddd 0%, #ffffff 100%) !important; /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd', endColorstr='#ffffff',GradientType=0 ) !important; /* IE6-9 */
+		border-bottom: none;
+	}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+	background-color: rgba(230, 0, 25, 0.07);
+	cursor: pointer;
+}
+
+.table thead tr th, .table tbody tr td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*超連結*/
+.table tbody tr a {
+	/*color: rgba(0, 0, 255, 0.80);
+	text-decoration: underline;*/
+}
+
+	.table tbody tr a:hover {
+		color: #1d2088;
+	}
+
+/*圖片*/
+.table tbody tr img {
+	width: 120px;
+	height: 90px;
+}
+
+	/*答題狀態*/
+	.table tbody tr img.status {
+		width: 50px;
+		height: 50px;
+	}
+
+	/*收合圖案*/
+	.table tbody tr img.add {
+		width: 15px;
+		height: 15px;
+		margin-right: 15px;
+		display: inline-block;
+		margin-top: -2px;
+	}
+
+/*正確答案*/
+.table tbody tr .table_success {
+	color: rgba(0, 0, 255, 0.80);
+	font-weight: 600;
+}
+
+/*標題至左*/
+.table tbody tr .td_title {
+	text-align: left;
+}
+
+/*項目至左*/
+.table tbody tr .td_left {
+	text-align: left;
+	vertical-align: top;
+	padding: 10px 10px 10px 20px;
+	letter-spacing: 1px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/*標題20%*/
+.table tbody tr .td_widthPer {
+	width: 25%;
+}
+
+/*tr子項目*/
+.table tbody .tr_subitem {
+	display: none;
+}
+
+/*td主項目*/
+.table tbody tr .td_mainitem {
+	background-color: #f9f9f9 !important;
+}
+
+/*td子項目*/
+.table tbody tr .td_subitem {
+	padding-left: 25px;
+	background-color: #fff !important;
+	border: none !important;
+	border-bottom: 1px solid #ddd !important;
+}
+
+.table tbody tr:hover .td_subitem {
+	background-color: rgba(230, 0, 25, 0.07) !important;
+}
+
+/*送出列*/
+.table tfoot tr .td_sumbit {
+	background-color: #eee !important;
+	padding: 5px 10px 10px;
+}
+
+/*表格排序*/
+.table_sort thead tr th {
+	cursor: pointer;
+}
+
+	.table_sort thead tr th span {
+		padding-right: 25px;
+		background-repeat: no-repeat;
+		background-position: 100% 100%;
+	}
+
+	.table_sort thead tr th.headerSortUp span {
+		background-image: url('../../Scripts/tablesorter/img/up-arrow.png');
+	}
+
+	.table_sort thead tr th.headerSortDown span {
+		background-image: url('../../Scripts/tablesorter/img/down-arrow.png');
+	}
+
+/*Radio*/
+.table_radio {
+	width: 100%;
+}
+
+	.table_radio input[type=radio] {
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+	}
+
+	.table_radio label {
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 3px;
+		font-weight: normal;
+		width: 86%;
+	}
+
+/*Checkbox*/
+.table_checkbox {
+	width: 20px;
+	position: relative;
+	margin: 20px auto;
+}
+
+.label_checkbox {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #ddd !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ddd), color-stop(100%, #ffffff)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ddd 0%,#ffffff 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ddd 0%, #ffffff 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #ddd 0%, #ffffff 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd', endColorstr='#ffffff',GradientType=0 ) !important; /* IE6-9 */
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+	.label_checkbox:after {
+		content: '';
+		width: 13px;
+		height: 8px;
+		position: absolute;
+		top: 4px;
+		left: 3px;
+		border: 3px solid #333;
+		border-top: none;
+		border-right: none;
+		background: transparent;
+		opacity: 0;
+		transform: rotate(-45deg);
+	}
+
+input[type=checkbox] {
+	/*visibility: hidden;*/
+}
+
+	input[type=checkbox]:checked + .label_checkbox:after {
+		opacity: 1;
+	}
