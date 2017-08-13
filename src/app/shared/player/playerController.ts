@@ -7,12 +7,35 @@ import { Card } from '../../model/cardModel'
 
 })
 
-export class PlayerComponent{
+export class PlayerComponent {
   @Input() player: Player;
   @Output() onCardSelected: EventEmitter<Player>;
+  private currentCard: Card;
 
   selectedProcess(chooseCard: Card): void {
-    console.log('Product clicked: ', chooseCard.name + chooseCard.cardNumber.toString() );
+    if (this.player.name == "1") {
+      this.currentCard = chooseCard;
+      let targetIndex = this.player.cards.map(function (item) { return item.cardNumber }).indexOf(chooseCard.cardNumber)
+      this.player.cards.splice(targetIndex, 1)
+
+    }
+
+    console.log('Product clicked: ', chooseCard.name + chooseCard.cardNumber.toString());
+  }
+  isSelected(): String {
+    if (this.currentCard) {
+
+      this.player.cards.forEach(item => {
+        if (item.cardNumber != this.currentCard.cardNumber) {
+          return 'block';
+        } else {
+          return 'none';
+        }
+      })
+      return 'block';
+    } else {
+      return 'block';
+    }
   }
 }
 

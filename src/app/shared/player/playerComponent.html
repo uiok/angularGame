@@ -3,6 +3,7 @@
  *ngFor="let playerCard of player.cards"
   [myCard]="playerCard"
   (onCardSelected) = "selectedProcess($event)"
+  [style.display]="isSelected()"
   ></card>
   <!--<div id="player1_card_1" class="horizontal_cards card_{{player.cards[0]}} col-md-2 col-sm-6"></div>
   <div id=" player1_card_2 " class="horizontal_cards card_{{player.cards[1]}} col-md-2 col-sm-6"></div>

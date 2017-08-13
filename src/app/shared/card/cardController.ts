@@ -16,18 +16,19 @@ export class CardComponent {
   }
 
   clicked(selectedCard: Card): void {
-    this.currentCard =selectedCard;
+    this.currentCard = selectedCard;
     this.onCardSelected.emit(selectedCard);
   }
-  isSelected(card: Card): String {
-    if (this.currentCard) {
-      if (this.currentCard.cardNumber != card.cardNumber) {
-        return 'visible';
-      } else {
-        return 'hidden';
-      }
-    } else {
-      return 'visible';
-    }
-  }
+// 原本放在card上控制顯示
+  // isSelected(card: Card): String {
+  //   if (this.currentCard) {
+  //     if (this.currentCard.cardNumber != card.cardNumber) {
+  //       return 'visible';
+  //     } else {
+  //       return 'hidden';
+  //     }
+  //   } else {
+  //     return 'visible';
+  //   }
+  // }
 }
