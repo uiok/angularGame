@@ -1,0 +1,18 @@
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  -webkit-transform-style: preserve-3d;
+
+}
+.flip .card.flipped_horizontal {
+    color: black;
+    cursor: pointer;
+    -webkit-transform: rotatex(-180deg);
+
+}
+.flip .card.flipped_vertical {
+    color: black;
+    cursor: pointer;
+    -webkit-transform: rotatey(-180deg);
+}

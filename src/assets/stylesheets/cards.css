@@ -155,13 +155,10 @@
     background-image: url('../images/card_52.png');
 }
 
-.card_back {
-    background-image: url('../images/card_back.png');
+.card_back_vertical {
+    background-image: url('../images/card_back_vertical.png');
 }
 
-.card_404 {
-    display: none;
-}
 
 .horizontal_cards {
     width: 50px;
@@ -169,4 +166,40 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: 5px;
+}
+
+
+.player1_card_Back{
+    top: 400px;
+    left: 45%;
+    width:100px;
+    height: 150px;
+    position: absolute;
+    background-repeat: round;
+}
+.player2_card_Back{
+    position: absolute;
+    top: 45%;
+    right: 35%;
+    width: 100px;
+    height: 150px;
+    background-repeat: round;
+    transform: rotate(90deg);
+}
+.player3_card_Back{
+    top: 35%;
+    left: 45%;
+    width:100px;
+    height: 150px;
+    position: absolute;
+    background-repeat: round;
+}
+.player4_card_Back{
+    position: absolute;
+    top: 45%;
+    left: 33%;
+    width: 100px;
+    height: 150px;
+    background-repeat: round;
+    transform: rotate(90deg);
 }
