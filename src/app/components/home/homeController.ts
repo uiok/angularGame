@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component,EventEmitter, Input, Output } from '@angular/core';
 import { Player } from '../../model/playerModel'
 import { Card } from '../../model/cardModel'
 
@@ -9,8 +9,11 @@ import { Card } from '../../model/cardModel'
 
 export class HomeComponent {
   @Input() playerList: Player[];
+  @Output() onCardPush: EventEmitter<Card>;
   _alerdyUsed: any[] = [];
+  private chooseCardList:Card[];
   constructor() {
+    this.chooseCardList = Array<Card>();
     this.playerList = [
       new Player(
         '1',
@@ -52,6 +55,15 @@ export class HomeComponent {
       }
     }
     return cardList;
+  }
+  CardPush(card:Card):void{
+    debugger;
+    this.chooseCardList.push(card);
+    if( this.chooseCardList.length == 4){
+
+    }else{
+
+    }
   }
 
 }

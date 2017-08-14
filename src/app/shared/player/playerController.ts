@@ -10,19 +10,26 @@ import { Card } from '../../model/cardModel'
 export class PlayerComponent {
   @Input() player: Player;
   @Output() onCardSelected: EventEmitter<Player>;
+  @Output() onCardPush: EventEmitter<Card>;
   private currentCard: Card;
+
+  constructor(){
+     this.onCardPush = new EventEmitter();
+  }
 
   selectedProcess(chooseCard: Card): void {
     if (this.player.name == "1") {
       this.currentCard = chooseCard;
       let targetIndex = this.player.cards.map(function (item) { return item.cardNumber }).indexOf(chooseCard.cardNumber)
       this.player.cards.splice(targetIndex, 1)
-
+      debugger;
+      this.onCardPush.emit(chooseCard);
     }
 
     console.log('Product clicked: ', chooseCard.name + chooseCard.cardNumber.toString());
   }
   isSelected(): String {
+      debugger;
     if (this.currentCard) {
 
       this.player.cards.forEach(item => {
@@ -37,6 +44,7 @@ export class PlayerComponent {
       return 'block';
     }
   }
+
 }
 
 
