@@ -9,7 +9,7 @@ import { Card } from '../../model/cardModel'
 
 export class HomeComponent {
   @Input() playerList: Player[];
-  @Output() onCardPush: EventEmitter<Card>;
+  @Output() onCardPush: EventEmitter<{card:Card,player:Player}>;
   _alerdyUsed: any[] = [];
   private chooseCardList:Card[];
   constructor() {
@@ -56,9 +56,9 @@ export class HomeComponent {
     }
     return cardList;
   }
-  CardPush(card:Card):void{
+  CardPush(obj:{card:Card,player:Player}):void{
     debugger;
-    this.chooseCardList.push(card);
+    this.chooseCardList.push(obj.card);
     if( this.chooseCardList.length == 4){
 
     }else{

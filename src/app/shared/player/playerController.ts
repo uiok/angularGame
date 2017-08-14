@@ -10,7 +10,7 @@ import { Card } from '../../model/cardModel'
 export class PlayerComponent {
   @Input() player: Player;
   @Output() onCardSelected: EventEmitter<Player>;
-  @Output() onCardPush: EventEmitter<Card>;
+  @Output() onCardPush: EventEmitter<{card:Card,player:Player}>;
   private currentCard: Card;
 
   constructor(){
@@ -23,7 +23,7 @@ export class PlayerComponent {
       let targetIndex = this.player.cards.map(function (item) { return item.cardNumber }).indexOf(chooseCard.cardNumber)
       this.player.cards.splice(targetIndex, 1)
       debugger;
-      this.onCardPush.emit(chooseCard);
+      this.onCardPush.emit({card:chooseCard,player:this.player});
     }
 
     console.log('Product clicked: ', chooseCard.name + chooseCard.cardNumber.toString());
