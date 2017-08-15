@@ -11,10 +11,10 @@ export class HomeComponent {
   @Input() playerList: Player[];
   @Output() onCardPush: EventEmitter<{ card: Card, player: Player }>;
   _alerdyUsed: any[] = [];
-  isShow: boolean;
+  isFlip: boolean;
   private chooseCardList: Card[];
   constructor() {
-    this.isShow = false;
+    this.isFlip = false;
     this.chooseCardList = Array<Card>();
     this.playerList = [
       new Player(
@@ -62,7 +62,7 @@ export class HomeComponent {
     debugger;
     this.chooseCardList.push(obj.card);
     if (this.chooseCardList.length == 4) {
-      this.isShow = true;
+
     } else {
 
     }

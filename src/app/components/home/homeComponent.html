@@ -1,14 +1,13 @@
 <div class="row background_table">
 
-<div>
-<div class="card_back_vertical player1_card_Back"></div>
-<div class="card_back_vertical player2_card_Back"></div>
-<div class="card_back_vertical player3_card_Back"></div>
-<div class="card_back_vertical player4_card_Back"></div>
-</div>
-  <player
- *ngFor="let myPlay of playerList"
-  [player]="myPlay"
-(onCardPush) ="CardPush($event)"
-  ></player>
+  <div class="flip_box">
+    <div class="flip player1_card_Back">
+      <div class="flip_card_back card_back_vertical"></div>
+      <div class="flip_card_font card_22"></div>
+    </div>
+    <div class="card_back_vertical player2_card_Back" ngClass="{'flipped_vertical':isFlip}"></div>
+    <div class="card_back_vertical player3_card_Back" ngClass="{'flipped_vertical':isFlip}"></div>
+    <div class="card_back_vertical player4_card_Back" ngClass="{'flipped_vertical':isFlip}"></div>
+  </div>
+  <player *ngFor="let myPlay of playerList" [player]="myPlay" (onCardPush)="CardPush($event)"></player>
 </div>
