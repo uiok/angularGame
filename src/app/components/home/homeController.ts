@@ -14,10 +14,10 @@ export class HomeComponent {
   @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
   _alerdyUsed: any[] = [];
   isFlip: boolean;
-  private chooseCardList: Card[];
+   chooseCardList: string[];
   constructor() {
     this.isFlip = false;
-    this.chooseCardList = Array<Card>();
+    this.chooseCardList = Array<string>();
     this.playerList = [
       new Player(
         '1',
@@ -64,8 +64,7 @@ export class HomeComponent {
     return cardList;
   }
   CardPush(obj: { card: Card, player: Player }): void {
-
-    this.chooseCardList.push(obj.card);
+    this.chooseCardList.push("card_" + obj.card.cardNumber);
     if (this.chooseCardList.length == 4) {
       this.isFlip = true;
     }

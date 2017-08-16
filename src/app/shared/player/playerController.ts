@@ -23,13 +23,10 @@ export class PlayerComponent {
 
   selectedProcess(chooseCard: Card): void {
     //改由css控制不能選(此處羅基需修改)
-    if (this.player.name == "1") {
+    if (true) {
       this.currentCard = chooseCard;
       let targetIndex = this.player.cards.map(function (item) { return item.cardNumber }).indexOf(chooseCard.cardNumber)
       this.player.cards.splice(targetIndex, 1)
-
-      //stop timer
-      this.timer = null;
       this.onCardPush.emit({ card: chooseCard, player: this.player });
     }
 
@@ -37,9 +34,8 @@ export class PlayerComponent {
   }
 
   timeOutProcess(): void {
- let tempNumber = Math.floor(Math.random() * (this.player.cards.length - 1)) + 1;
-
-      this.selectedProcess(this.player.cards[tempNumber]);
+    let tempNumber = Math.floor(Math.random() * (this.player.cards.length - 1)) + 1;
+    this.selectedProcess(this.player.cards[tempNumber]);
   }
 
   newRound(): string {

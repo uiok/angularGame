@@ -23,7 +23,7 @@
 	transform: rotateY(180deg);
 }
 .flip_vertical {
-transform: rotateX(-180deg);
+	transform: rotateY(180deg);
 }
 
 /*

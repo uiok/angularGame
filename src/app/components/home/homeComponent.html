@@ -1,27 +1,27 @@
 <div class="row background_table">
 
   <div class="flip_box">
-    <div class="flip player1_card_Back" ngClass="{'flip_horizontal':isFlip}">
+    <div class="flip player1_card_Back" [ngClass]="{'flip_horizontal':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font card_22"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[0]"></div>
     </div>
   </div>
   <div class="flip_box">
-    <div class="flip player2_card_Back" ngClass="{'flip_vertical':isFlip}">
+    <div class="flip player2_card_Back" [ngClass]="{'flip_vertical':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font card_22"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[1]"></div>
     </div>
   </div>
   <div class="flip_box">
-    <div class="flip player3_card_Back" ngClass="{'flip_horizontal':isFlip}">
+    <div class="flip player3_card_Back" [ngClass]="{'flip_horizontal':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font card_22"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[2]"></div>
     </div>
   </div>
   <div class="flip_box">
-    <div class="flip player4_card_Back" ngClass="{'flip_vertical':isFlip}">
+    <div class="flip player4_card_Back" [ngClass]="{'flip_vertical':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font card_22"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[3]"></div>
     </div>
   </div>
   <player *ngFor="let myPlay of playerList" [player]="myPlay" (onCardPush)="CardPush($event)" #playerObj></player>
