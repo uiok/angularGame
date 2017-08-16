@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, ViewChildren, QueryList, ElementRef, AfterViewInit, Input, Output } from '@angular/core';
 import { Player } from '../../model/playerModel'
 import { Card } from '../../model/cardModel'
+import { PlayerComponent } from '../../shared/player/playerController'
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Card } from '../../model/cardModel'
 export class HomeComponent {
   @Input() playerList: Player[];
   @Output() onCardPush: EventEmitter<{ card: Card, player: Player }>;
+  @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
   _alerdyUsed: any[] = [];
   isFlip: boolean;
   private chooseCardList: Card[];
@@ -43,6 +45,9 @@ export class HomeComponent {
       )
     ]
   }
+  ngAfterViewInit() {
+    setTimeout(this.timerStart.bind(this), 7000)
+  }
   RandomCard(): Card[] {
     let cardList = [];
     let min = Math.ceil(1);
@@ -59,13 +64,17 @@ export class HomeComponent {
     return cardList;
   }
   CardPush(obj: { card: Card, player: Player }): void {
-    debugger;
+
     this.chooseCardList.push(obj.card);
     if (this.chooseCardList.length == 4) {
-
-    } else {
-
+      this.isFlip = true;
     }
+  }
+
+  timerStart(): void {
+    this.playerObj.forEach(item => {
+      item.timeOutProcess()
+    });
   }
 
 }

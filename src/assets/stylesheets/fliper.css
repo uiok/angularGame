@@ -1,6 +1,5 @@
 .flip_box{
-    width: 100px;
-    height: 150px;
+
 }
 
 .flip_card_font{
@@ -19,12 +18,18 @@
   transition: 0.6s;
 	transform-style: preserve-3d;
 }
+
+.flip_horizontal{
+	transform: rotateY(180deg);
+}
+.flip_vertical {
+transform: rotateX(-180deg);
+}
+
+/*
 	.flip_box:hover .flip, .flip_box.hover .flip {
 		transform: rotateY(180deg);
 	}
-
-
-/*
 
 .flip .card.flipped_horizontal {
     color: black;
