@@ -14,10 +14,11 @@ export class HomeComponent {
   @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
   _alerdyUsed: any[] = [];
   isFlip: boolean;
-   chooseCardList: string[];
+  chooseCardList: any[];
+  winner: any;
   constructor() {
     this.isFlip = false;
-    this.chooseCardList = Array<string>();
+    this.chooseCardList = Array<any>();
     this.playerList = [
       new Player(
         '1',
@@ -58,15 +59,25 @@ export class HomeComponent {
         continue;
       } else {
         this._alerdyUsed.push(tempNumber)
-        cardList.push(new Card('花色', 'horizontal_cards card_', tempNumber))
+        cardList.push(new Card('花色', 'card_', tempNumber))
       }
     }
     return cardList;
   }
   CardPush(obj: { card: Card, player: Player }): void {
-    this.chooseCardList.push("card_" + obj.card.cardNumber);
+    // this.chooseCardList.push("card_" + obj.card.cardNumber);
+    this.chooseCardList.push(obj);
+
+
     if (this.chooseCardList.length == 4) {
-      this.isFlip = true;
+      this.winner = this.chooseCardList.reduce((a, b) => {
+        return (a.card.cardNumber > b.card.cardNumber) ? a : b
+      })
+      //新增開獎效果,預計CSS處理特效
+      setTimeout((() => {
+        this.isFlip = true;
+      }).bind(this), 3000);
+
     }
   }
 
@@ -74,6 +85,9 @@ export class HomeComponent {
     this.playerObj.forEach(item => {
       item.timeOutProcess()
     });
+  }
+  showWinner(): void {
+
   }
 
 }

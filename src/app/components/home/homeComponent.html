@@ -3,25 +3,25 @@
   <div class="flip_box">
     <div class="flip player1_card_Back" [ngClass]="{'flip_horizontal':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font" [ngClass]="chooseCardList[0]"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[0] ? chooseCardList[0].card.imageUrl: ''"></div>
     </div>
   </div>
   <div class="flip_box">
     <div class="flip player2_card_Back" [ngClass]="{'flip_vertical':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font" [ngClass]="chooseCardList[1]"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[1] ? chooseCardList[1].card.imageUrl: ''"></div>
     </div>
   </div>
   <div class="flip_box">
     <div class="flip player3_card_Back" [ngClass]="{'flip_horizontal':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font" [ngClass]="chooseCardList[2]"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[2] ? chooseCardList[2].card.imageUrl: ''"></div>
     </div>
   </div>
   <div class="flip_box">
     <div class="flip player4_card_Back" [ngClass]="{'flip_vertical':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
-      <div class="flip_card_font" [ngClass]="chooseCardList[3]"></div>
+      <div class="flip_card_font" [ngClass]="chooseCardList[3] ? chooseCardList[3].card.imageUrl: ''"></div>
     </div>
   </div>
   <player *ngFor="let myPlay of playerList" [player]="myPlay" (onCardPush)="CardPush($event)" #playerObj></player>
