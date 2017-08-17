@@ -12,13 +12,26 @@ export class HomeComponent {
   @Input() playerList: Player[];
   @Output() onCardPush: EventEmitter<{ card: Card, player: Player }>;
   @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
-  _alerdyUsed: any[] = [];
+   cardList: number[];
   isFlip: boolean;
   chooseCardList: any[];
   winner: any;
   constructor() {
     this.isFlip = false;
     this.chooseCardList = Array<any>();
+    this.cardList = Array<number>(
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+      31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+      41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52
+    );
+     let i = this.cardList.length;
+    while (i) {
+      let j = Math.floor(Math.random() * i)
+      let k = this.cardList[--i];
+      this.cardList[i] = this.cardList[j];
+      this.cardList[j] = k;
+    }
     this.playerList = [
       new Player(
         '1',
@@ -50,19 +63,15 @@ export class HomeComponent {
     setTimeout(this.timerStart.bind(this), 7000)
   }
   RandomCard(): Card[] {
-    let cardList = [];
-    let min = Math.ceil(1);
-    let max = Math.floor(52);
-    while (cardList.length < 5) {
-      let tempNumber = Math.floor(Math.random() * (max - min)) + min
-      if (this._alerdyUsed.find(a => a == tempNumber)) {
-        continue;
-      } else {
-        this._alerdyUsed.push(tempNumber)
-        cardList.push(new Card('花色', 'card_', tempNumber))
-      }
+   let i = 0;
+    let tempList = [];
+    while (i < 5) {
+      tempList.push(new Card('花色', 'card_', this.cardList[i]))
+      i++;
     }
-    return cardList;
+    this.cardList.splice(0, 5)
+
+    return tempList;
   }
   CardPush(obj: { card: Card, player: Player }): void {
     // this.chooseCardList.push("card_" + obj.card.cardNumber);
@@ -76,12 +85,14 @@ export class HomeComponent {
       //新增開獎效果,預計CSS處理特效
       setTimeout((() => {
         this.isFlip = true;
+        this.timerStart();
       }).bind(this), 3000);
 
     }
   }
 
   timerStart(): void {
+      this.chooseCardList = Array<any>();
     this.playerObj.forEach(item => {
       item.timeOutProcess()
     });
