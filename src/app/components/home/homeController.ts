@@ -12,12 +12,16 @@ export class HomeComponent {
   @Input() playerList: Player[];
   @Output() onCardPush: EventEmitter<{ card: Card, player: Player }>;
   @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
-   cardList: number[];
+  cardList: number[];
   isFlip: boolean;
+  isWinner: boolean;
   chooseCardList: any[];
   winner: any;
+  round: number;
   constructor() {
     this.isFlip = false;
+    this.isWinner = false;
+    this.round = 5;
     this.chooseCardList = Array<any>();
     this.cardList = Array<number>(
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -25,7 +29,7 @@ export class HomeComponent {
       31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
       41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52
     );
-     let i = this.cardList.length;
+    let i = this.cardList.length;
     while (i) {
       let j = Math.floor(Math.random() * i)
       let k = this.cardList[--i];
@@ -63,7 +67,7 @@ export class HomeComponent {
     setTimeout(this.timerStart.bind(this), 7000)
   }
   RandomCard(): Card[] {
-   let i = 0;
+    let i = 0;
     let tempList = [];
     while (i < 5) {
       tempList.push(new Card('花色', 'card_', this.cardList[i]))
@@ -83,21 +87,38 @@ export class HomeComponent {
         return (a.card.cardNumber > b.card.cardNumber) ? a : b
       })
       //新增開獎效果,預計CSS處理特效
-      setTimeout((() => {
+      //可以正常啟動
+      //winner過場動畫顯示時間需調整
+      this.timer(3000, (() => {
         this.isFlip = true;
-        this.timerStart();
-      }).bind(this), 3000);
-
+        this.isWinner = true;
+        this.timer(2000, this.timerStart.bind(this));
+      }).bind(this));
     }
+
   }
 
   timerStart(): void {
+    this.isFlip = false;
+    this.isWinner = false;
+    //功能可行,之後改成變數
+    if (this.round-- > 0) {
       this.chooseCardList = Array<any>();
-    this.playerObj.forEach(item => {
-      item.timeOutProcess()
-    });
+      this.playerObj.forEach(item => {
+        item.timeOutProcess()
+      });
+    }
+
   }
-  showWinner(): void {
+
+
+  timer(sec: number, callBack: any): void {
+    if (typeof (callBack) === 'function') {
+      setTimeout(callBack, sec);
+    }
+  }
+  //不能再啟動計數器
+  lastRound(): void {
 
   }
 
