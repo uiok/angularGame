@@ -2,6 +2,8 @@
     <card
  *ngFor="let playerCard of player.cards"
   [myCard]="playerCard"
+  [isOdd] = "player.name%2==0 ? false:true"
+  [isFiestOne] = "player.name"
   (onCardSelected) = "selectedProcess($event)"
   [style.display]="isSelected()"
   ></card>

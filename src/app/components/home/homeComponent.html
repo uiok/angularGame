@@ -1,7 +1,7 @@
 <div class="row background_table">
 
 <div [ngClass]="{'winner':isWinner}">
-
+<button (onclick)="newRound()">下一局</button>
 </div>
   <div class="flip_box">
     <div class="flip player1_card_Back" [ngClass]="{'flip_horizontal':isFlip}">

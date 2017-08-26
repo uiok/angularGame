@@ -1,4 +1,14 @@
- <div id="player1_card_1"
-  [ngClass]="[myCard.imageUrl, 'col-md-2','col-sm-6','horizontal_cards']"
-  (click)='clicked(myCard)'
-  ></div>
+<div *ngIf="isFiestOne == '1';then thePlayer1 else others">
+</div>
+<ng-template #thePlayer1>
+  <div id="player1_card_1"
+  [ngClass]="[myCard.imageUrl, 'horizontal_cards', 'col-md-2', 'col-sm-6']"
+  (click)='clicked(myCard)'>
+  </div>
+</ng-template>
+<ng-template #others>
+  <div id="player1_card_1"
+  [ngClass]="[myCard.imageUrl, isOdd ? 'horizontal_cards_3 col-md-2 col-sm-6':'player_card_horizontal']"
+  (click)='clicked(myCard)'>
+  </div>
+</ng-template>

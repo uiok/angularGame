@@ -170,6 +170,14 @@
     background-size: 100% 100%;
     margin: 5px;
 }
+.horizontal_cards_3 {
+    width: 50px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 5px;
+    background-image: url('../images/card_back_vertical.png');
+}
 
 
 .player1_card_Back{
@@ -205,4 +213,13 @@
     height: 150px;
     background-repeat: round;
     transform: rotate(90deg);
+}
+
+.player_card_horizontal{
+  width: 100px;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 5px;
+       background-image: url('../images/card_back_vertical.png');
 }

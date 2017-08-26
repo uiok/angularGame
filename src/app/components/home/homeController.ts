@@ -18,10 +18,13 @@ export class HomeComponent {
   chooseCardList: any[];
   winner: any;
   round: number;
+  coundDownSecond: number;
+  countTimer: any;
   constructor() {
     this.isFlip = false;
     this.isWinner = false;
     this.round = 5;
+    this.coundDownSecond = 7;
     this.chooseCardList = Array<any>();
     this.cardList = Array<number>(
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -81,7 +84,6 @@ export class HomeComponent {
     // this.chooseCardList.push("card_" + obj.card.cardNumber);
     this.chooseCardList.push(obj);
 
-
     if (this.chooseCardList.length == 4) {
       this.winner = this.chooseCardList.reduce((a, b) => {
         return (a.card.cardNumber > b.card.cardNumber) ? a : b
@@ -89,37 +91,54 @@ export class HomeComponent {
       //新增開獎效果,預計CSS處理特效
       //可以正常啟動
       //winner過場動畫顯示時間需調整
-      this.timer(3000, (() => {
-        this.isFlip = true;
-        this.isWinner = true;
-        this.timer(2000, this.timerStart.bind(this));
-      }).bind(this));
+      // this.timer(3000, (() => {
+      //   this.isFlip = true;
+      //   this.isWinner = true;
+      //   this.timer(2000, this.timerStart.bind(this));
+      // }).bind(this));
+      this.isFlip = true;
+      this.isWinner = true;
     }
 
   }
 
-  timerStart(): void {
-    this.isFlip = false;
-    this.isWinner = false;
-    //功能可行,之後改成變數
+  //倒數結束通知玩家出牌
+  timeUP() {
     if (this.round-- > 0) {
       this.chooseCardList = Array<any>();
       this.playerObj.forEach(item => {
         item.timeOutProcess()
       });
     }
-
   }
 
+  timerStart(): void {
+    if (this.round-- > 0) {
+
+      if (this.coundDownSecond == 0) {
+        this.timerStart();
+      } else {
+        this.coundDownSecond--;
+        if (this.countTimer) {
+          clearTimeout(this.countTimer);
+        }
+      }
+      //倒數計時動畫用跟winner同一個容器?
+      this.countTimer = setTimeout(this.timerStart, 1000);
+    }
+  }
 
   timer(sec: number, callBack: any): void {
     if (typeof (callBack) === 'function') {
       setTimeout(callBack, sec);
     }
   }
-  //不能再啟動計數器
-  lastRound(): void {
-
+  //讓使用者按的新一局(重新啟動計數)
+  newRound() {
+    this.isFlip = false;
+    this.isWinner = false;
+    this.timerStart();
   }
+
 
 }
