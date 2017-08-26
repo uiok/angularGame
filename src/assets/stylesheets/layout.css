@@ -18,3 +18,33 @@
     top: 45%;
     background-color:red;
 }
+.countNumber{
+  width: 100px;
+    height: 100px;
+    margin: auto 45%;
+    z-index: 999;
+    position: relative;
+    vertical-align: auto 60%;
+    top: 45%;
+}
+.cou_7 {
+    background-image: url('../images/7.svg');
+}
+.cou_6 {
+    background-image: url('../images/6.svg');
+}
+.cou_5 {
+    background-image: url('../images/5.svg');
+}
+.cou_4 {
+    background-image: url('../images/4.svg');
+}
+.cou_3 {
+    background-image: url('../images/3.svg');
+}
+.cou_2 {
+    background-image: url('../images/2.svg');
+}
+.cou_1 {
+    background-image: url('../images/1.svg');
+}

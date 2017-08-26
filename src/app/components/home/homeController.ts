@@ -20,6 +20,7 @@ export class HomeComponent {
   round: number;
   coundDownSecond: number;
   countTimer: any;
+  randomcolor:string;
   constructor() {
     this.isFlip = false;
     this.isWinner = false;
@@ -126,8 +127,9 @@ export class HomeComponent {
       if (this.coundDownSecond == 0) {
         this.timeUP();
       } else {
-        this.coundDownSecond--;
-
+        this.randomcolor = "../assets/images/"+this.coundDownSecond+".svg";
+          this.coundDownSecond--;
+          debugger;
         //倒數計時動畫用跟winner同一個容器?
         this.countTimer = setTimeout(this.timerStart.bind(this), 1000);
       }

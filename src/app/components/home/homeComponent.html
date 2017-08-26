@@ -3,6 +3,9 @@
 <div [ngClass]="{'winner':isWinner}">
 <button (click)="newRound($event)">下一局</button>
 </div>
+<div class="countNumber" >
+<img src="{{[randomcolor]}}" style="width: inherit;height: inherit;">
+</div>
   <div class="flip_box">
     <div class="flip player1_card_Back" [ngClass]="{'flip_horizontal':isFlip}">
       <div class="flip_card_back card_back_vertical"></div>
