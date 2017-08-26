@@ -8,7 +8,7 @@ import { PlayerComponent } from '../../shared/player/playerController'
   templateUrl: './homeComponent.html'
 })
 
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit{
   @Input() playerList: Player[];
   @Output() onCardPush: EventEmitter<{ card: Card, player: Player }>;
   @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
@@ -20,7 +20,6 @@ export class HomeComponent {
   round: number;
   coundDownSecond: number;
   countTimer: any;
-  randomcolor:string;
   constructor() {
     this.isFlip = false;
     this.isWinner = false;
@@ -126,11 +125,10 @@ export class HomeComponent {
     if (this.round > 0) {
       if (this.coundDownSecond == 0) {
         this.timeUP();
+
       } else {
-        this.randomcolor = "../assets/images/"+this.coundDownSecond+".svg";
-          this.coundDownSecond--;
-          debugger;
-        //倒數計時動畫用跟winner同一個容器?
+        debugger;
+        this.coundDownSecond--;
         this.countTimer = setTimeout(this.timerStart.bind(this), 1000);
       }
 
@@ -140,10 +138,11 @@ export class HomeComponent {
 
   //讓使用者按的新一局(重新啟動計數)
   newRound(even) {
+ this.coundDownSecond = 7;
     this.isFlip = false;
     this.isWinner = false;
-    this.coundDownSecond = 7;
     this.chooseCardList = Array(0);
+
     this.timerStart();
   }
 
