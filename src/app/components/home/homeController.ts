@@ -67,7 +67,7 @@ export class HomeComponent {
     ]
   }
   ngAfterViewInit() {
-    setTimeout(this.timerStart.bind(this), 7000)
+    this.timerStart();
   }
   RandomCard(): Card[] {
     let i = 0;
@@ -105,40 +105,56 @@ export class HomeComponent {
   //倒數結束通知玩家出牌
   timeUP() {
     if (this.round-- > 0) {
-      this.chooseCardList = Array<any>();
-      this.playerObj.forEach(item => {
-        item.timeOutProcess()
-      });
+      debugger;
+      if (this.chooseCardList.length == 0) {
+        this.playerObj.forEach(item => {
+          item.timeOutProcess()
+        });
+      } else {
+        let tempList = this.playerObj.filter(a => this.chooseCardList.find(b => a.player.name != b.player.name))
+        tempList.forEach(item => {
+          item.timeOutProcess()
+        });
+      }
+
     }
   }
 
   timerStart(): void {
-    if (this.round-- > 0) {
 
+    if (this.round > 0) {
       if (this.coundDownSecond == 0) {
-        this.timerStart();
+        this.timeUP();
       } else {
         this.coundDownSecond--;
-        if (this.countTimer) {
-          clearTimeout(this.countTimer);
-        }
+
+        //倒數計時動畫用跟winner同一個容器?
+        this.countTimer = setTimeout(this.timerStart.bind(this), 1000);
       }
-      //倒數計時動畫用跟winner同一個容器?
-      this.countTimer = setTimeout(this.timerStart, 1000);
+
     }
   }
+
+
+  //讓使用者按的新一局(重新啟動計數)
+  newRound(even) {
+    this.isFlip = false;
+    this.isWinner = false;
+    this.coundDownSecond = 7;
+    this.chooseCardList = Array(0);
+    this.timerStart();
+  }
+
+
+
+
+
+
 
   timer(sec: number, callBack: any): void {
     if (typeof (callBack) === 'function') {
       setTimeout(callBack, sec);
     }
   }
-  //讓使用者按的新一局(重新啟動計數)
-  newRound() {
-    this.isFlip = false;
-    this.isWinner = false;
-    this.timerStart();
-  }
-
 
 }
