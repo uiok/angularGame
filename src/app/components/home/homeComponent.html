@@ -1,7 +1,8 @@
 <div>
 
-<div [ngClass]="{'winner':isWinner}">
+<div [ngClass]="{'winner':isWinner}" style="display:none;">
 <button (click)="newRound($event)">下一局</button>
+<img src="{{[winnerImg]}}" alt="" style="padding-left: 20%;">
 </div>
 <div  class="countNumber cou_{{[coundDownSecond]}}" >
 <!--<img src="{{[countImg]}}" style="width: inherit;height: inherit;">-->

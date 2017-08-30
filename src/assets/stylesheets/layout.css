@@ -11,18 +11,19 @@
 .winner{
     width: 100px;
     height: 100px;
-    margin: auto 45%;
+    margin: auto 30%;
     z-index: 999;
-    position: relative;
+    position: absolute;
     vertical-align: auto 60%;
     top: 45%;
-    background-color:red;
+    background-color: azure;
+    border-radius: 99px;
+    display:block !important;
 }
 .countNumber{
     width: 100px;
     height: 100px;
     margin: auto 30%;
-    z-index: 999;
     position: absolute;
     vertical-align: auto 60%;
     top: 45%;

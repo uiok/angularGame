@@ -43,4 +43,4 @@ yarn-error.log
 Thumbs.db
 
 #image
-/src/assets/images/*
+#/src/assets/images/*

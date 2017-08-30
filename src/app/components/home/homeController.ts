@@ -16,10 +16,10 @@ export class HomeComponent implements AfterViewInit{
   isFlip: boolean;
   isWinner: boolean;
   chooseCardList: any[];
-  winner: any;
   round: number;
   coundDownSecond: number;
   countTimer: any;
+  winnerImg:string;
   constructor() {
     this.isFlip = false;
     this.isWinner = false;
@@ -67,7 +67,7 @@ export class HomeComponent implements AfterViewInit{
     ]
   }
   ngAfterViewInit() {
-    // this.timerStart();
+    this.timerStart();
   }
   RandomCard(): Card[] {
     let i = 0;
@@ -81,23 +81,21 @@ export class HomeComponent implements AfterViewInit{
     return tempList;
   }
   CardPush(obj: { card: Card, player: Player }): void {
-    // this.chooseCardList.push("card_" + obj.card.cardNumber);
+    let winner:any;
     this.chooseCardList.push(obj);
 
     if (this.chooseCardList.length == 4) {
-      this.winner = this.chooseCardList.reduce((a, b) => {
+      winner = this.chooseCardList.reduce((a, b) => {
         return (a.card.cardNumber > b.card.cardNumber) ? a : b
       })
-      //新增開獎效果,預計CSS處理特效
-      //可以正常啟動
-      //winner過場動畫顯示時間需調整
-      // this.timer(3000, (() => {
-      //   this.isFlip = true;
-      //   this.isWinner = true;
-      //   this.timer(2000, this.timerStart.bind(this));
-      // }).bind(this));
+
+      this.winnerImg ="../assets/images/winner_" +winner.player.name+".svg";
+  debugger;
       this.isFlip = true;
       this.isWinner = true;
+
+        //新增開獎效果,預計CSS處理特效
+
     }
 
   }
@@ -127,7 +125,6 @@ export class HomeComponent implements AfterViewInit{
         this.timeUP();
 
       } else {
-        debugger;
         this.coundDownSecond--;
         this.countTimer = setTimeout(this.timerStart.bind(this), 1000);
       }
