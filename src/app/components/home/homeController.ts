@@ -67,7 +67,7 @@ export class HomeComponent implements AfterViewInit{
     ]
   }
   ngAfterViewInit() {
-    this.timerStart();
+    // this.timerStart();
   }
   RandomCard(): Card[] {
     let i = 0;

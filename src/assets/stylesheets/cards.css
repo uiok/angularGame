@@ -190,7 +190,7 @@
 }
 .player2_card_Back{
     position: absolute;
-    top: 45%;
+    top: 35%;
     right: 35%;
     width: 100px;
     height: 150px;
@@ -198,7 +198,7 @@
     transform: rotate(90deg);
 }
 .player3_card_Back{
-    top: 35%;
+    top: 25%;
     left: 45%;
     width:100px;
     height: 150px;
@@ -207,7 +207,7 @@
 }
 .player4_card_Back{
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 33%;
     width: 100px;
     height: 150px;
