@@ -3,9 +3,9 @@
  */
 export class Card {
   constructor(
-    public name: String,
-    public imageUrl: String,
-    public cardNumber: Number  ) {
-      this.imageUrl += this.cardNumber.toString()
+    public name: number,
+    public imageUrl: string,
+    public cardNumber: number  ) {
+      this.imageUrl += this.cardNumber
   }
 }

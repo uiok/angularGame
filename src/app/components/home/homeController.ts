@@ -1,4 +1,4 @@
-import { Component, EventEmitter, ViewChildren, QueryList, ElementRef, AfterViewInit, Input, Output } from '@angular/core';
+import { Component, EventEmitter, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, AfterViewInit, Input, Output } from '@angular/core';
 import { Player } from '../../model/playerModel'
 import { Card } from '../../model/cardModel'
 import { PlayerComponent } from '../../shared/player/playerController'
@@ -8,35 +8,37 @@ import { PlayerComponent } from '../../shared/player/playerController'
   templateUrl: './homeComponent.html'
 })
 
-export class HomeComponent implements AfterViewInit{
+export class HomeComponent implements AfterViewInit {
   @Input() playerList: Player[];
   @Output() onCardPush: EventEmitter<{ card: Card, player: Player }>;
   @ViewChildren(PlayerComponent) playerObj: QueryList<PlayerComponent>
-  cardList: number[];
+  cardList: string[];
   isFlip: boolean;
   isWinner: boolean;
   chooseCardList: any[];
   round: number;
   coundDownSecond: number;
   countTimer: any;
-  winnerImg:string;
-  constructor() {
+  winnerImg: string;
+
+  constructor(private ChangeDetector: ChangeDetectorRef) {
     this.isFlip = false;
     this.isWinner = false;
     this.round = 5;
-    this.coundDownSecond = 7;
+    this.coundDownSecond = 8;
     this.chooseCardList = Array<any>();
-    this.cardList = Array<number>(
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-      21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-      31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-      41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52
+    this.cardList = Array<string>(
+      "400_1", "400_2", "400_3", "400_4", "400_5", "400_6", "400_7", "400_8", "400_9", "400_10", "400_11", "400_12", "400_13",
+      "300_1", "300_2", "300_3", "300_4", "300_5", "300_6", "300_7", "300_8", "300_9", "300_10", "300_11", "300_12", "300_13",
+      "200_1", "200_2", "200_3", "200_4", "200_5", "200_6", "200_7", "200_8", "200_9", "200_10", "200_11", "200_12", "200_13",
+      "100_1", "100_2", "100_3", "100_4", "100_5", "100_6", "100_7", "100_8", "100_9", "100_10", "100_11", "100_12", "100_13"
     );
     let i = this.cardList.length;
     while (i) {
       let j = Math.floor(Math.random() * i)
       let k = this.cardList[--i];
       this.cardList[i] = this.cardList[j];
+
       this.cardList[j] = k;
     }
     this.playerList = [
@@ -73,7 +75,10 @@ export class HomeComponent implements AfterViewInit{
     let i = 0;
     let tempList = [];
     while (i < 5) {
-      tempList.push(new Card('花色', 'card_', this.cardList[i]))
+
+      let tempObj = this.cardList[i].split('_');
+ debugger;
+      tempList.push(new Card(parseInt(tempObj[0]), "_" + tempObj[0] +"_", parseInt(tempObj[1])))
       i++;
     }
     this.cardList.splice(0, 5)
@@ -81,20 +86,32 @@ export class HomeComponent implements AfterViewInit{
     return tempList;
   }
   CardPush(obj: { card: Card, player: Player }): void {
-    let winner:any;
+    let winner: any;
     this.chooseCardList.push(obj);
 
     if (this.chooseCardList.length == 4) {
       winner = this.chooseCardList.reduce((a, b) => {
-        return (a.card.cardNumber > b.card.cardNumber) ? a : b
+        debugger;
+        if (a.card.cardNumber == b.card.cardNumber) {
+          if (a.card.name > b.card.name) {
+            return a;
+          } else {
+            return b;
+          }
+        }
+        if (a.card.cardNumber > b.card.cardNumber) {
+          return a;
+        } else {
+          return b;
+        }
       })
 
-      this.winnerImg ="../assets/images/winner_" +winner.player.name+".svg";
-  debugger;
+      this.winnerImg = "../assets/images/winner_" + winner.player.name + ".svg";
+
       this.isFlip = true;
       this.isWinner = true;
 
-        //新增開獎效果,預計CSS處理特效
+      //新增開獎效果,預計CSS處理特效
 
     }
 
@@ -114,7 +131,6 @@ export class HomeComponent implements AfterViewInit{
           item.timeOutProcess()
         });
       }
-
     }
   }
 
@@ -126,6 +142,7 @@ export class HomeComponent implements AfterViewInit{
 
       } else {
         this.coundDownSecond--;
+        this.ChangeDetector.detectChanges();
         this.countTimer = setTimeout(this.timerStart.bind(this), 1000);
       }
 
@@ -135,7 +152,7 @@ export class HomeComponent implements AfterViewInit{
 
   //讓使用者按的新一局(重新啟動計數)
   newRound(even) {
- this.coundDownSecond = 7;
+    this.coundDownSecond = 8;
     this.isFlip = false;
     this.isWinner = false;
     this.chooseCardList = Array(0);
